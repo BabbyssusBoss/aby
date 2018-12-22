@@ -1,0 +1,5 @@
+# HTTrack Website Copier Cookie File
+# This file format is compatible with Netscape cookies
+s1.abyssus.games	TRUE	/	FALSE	1999999999	PHPSESSID	96dg3qh113jdjqd3b72milran2
+.abyssus.games	TRUE	/	FALSE	1999999999	token	6e1552b8d7acba5771da838945f4fa55
+

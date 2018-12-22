@@ -1,0 +1,958 @@
+‹!doctype html>
+‹html lang="fr">
+‹head>
+‹meta charset="utf-8">
+‹meta name=viewport content="width=device-width, initial-scale=1">
+‹title>Abyssus - Le Jeu‹/title>
+‹link href="favicon.ico" rel="icon" type="image/x-icon" />
+‹link href="jquery-ui.css" rel="stylesheet">
+‹link href="style.css" rel="stylesheet">
+
+
+‹/head>
+‹body>
+
+‹div id="marqueur_pack_premium_1" style="display:none;">1‹/div>
+‹div id="marqueur_pack_premium_2" style="display:none;">0‹/div>
+‹div id="marqueur_ID_joueur" style="display:none;">901‹/div>
+‹div id="marqueur_pseudo_joueur" style="display:none;">brunellio‹/div>
+
+‹script src="external/jquery/jquery.js">‹/script>
+‹script src="jquery-ui.js">‹/script>
+‹script src="horloge.php">‹/script>
+
+‹div id="hauttel">‹a href="jeu.php">‹img src="images/hauttelephone.jpg">‹/a>‹/div>
+‹div id="ressourcetel">
+
+‹span title="18 346 198 Coraux">‹img src="images/corail.png" height="25" style="vertical-align:bottom;" alt="coraux">
+
+18,35 M
+‹/span>
+‹span title="351 277 094 Nourritures">‹img src="images/nourriture.png" height="25" alt="nourriture" style="vertical-align:bottom; margin-left:10px;">
+
+
+351,28 M
+
+‹/span>
+‹span title="1 611 229 964 Coquillages et Crustacés">‹img src="images/coquillage.png" alt="coquillage" height="25" style="vertical-align:bottom; margin-left:10px;">
+
+1,61 G‹/span>
+
+
+‹span title="34 407 422 poissons clowns">‹img src="images/ouvriere.png" alt="ouvriere" height="25" style="vertical-align:bottom; margin-left:10px; margin-right:5px;">34,41 M‹/span>
+‹span title="91 259 044 Territoire Marin">‹img src="images/eau.png" alt="terrain" height="25" style="vertical-align:bottom; margin-left:10px; margin-right:5px;">91,26 M‹/span>
+
+‹a href="jeu.php?page=messageriev2">‹img src="images/bulle.png" height="25" style="vertical-align:bottom; margin-left:20px;" alt="MP"> 0‹/a> ‹a href="jeu.php?page=messageriev2&type=chasse">‹img src="images/bullevert.png" height="25" style="vertical-align:bottom; margin-left:15px;" alt="MP Chasse"> 0‹/a> ‹a href="jeu.php?page=messageriev2&type=combat">‹img src="images/bullerouge.png" height="25" style="vertical-align:bottom; margin-left:15px;" alt="MP Combat"> 0‹/a>
+
+
+‹a href="jeu.php?page=messageriev2&type=convoi">‹img src="images/bullebleu.png" height="25" style="vertical-align:bottom; margin-left:15px;" alt="MP Combat"> 0‹/a>
+
+
+
+
+
+‹/div>
+‹div id="haut">
+
+‹div id="ressource">
+
+‹table width="100%" border="0">
+‹tbody>
+‹tr>
+‹td>‹span title="Coraux">‹img src="images/corail.png" width="25" style="vertical-align:bottom;" alt="coraux">
+
+18 346 198‹/span>‹/td>
+‹td>‹span title="Coquillages et Crustacés">‹img src="images/coquillage.png" alt="coquillage" height="25" style="vertical-align:bottom;">
+
+1 611 229 964‹/span>‹/td>
+‹td>‹span title="Territoire Marin">‹img src="images/eau.png" alt="terrain" height="25" style="vertical-align:bottom;"> 91 259 044‹/span>‹/td>
+‹td>‹a href="jeu.php?page=messageriev2">‹img src="images/bulle.png" height="25" style="vertical-align:bottom;" alt="MP"> 0‹/a>‹/td>
+‹td>‹a href="jeu.php?page=messageriev2&type=combat">‹img src="images/bullerouge.png" height="25" style="vertical-align:bottom; margin-left:15px;" alt="MP Combat"> 0‹/a>‹/td>
+‹/tr>
+‹tr>
+‹td>‹span title="Nourritures">‹img src="images/nourriture.png" width="25" alt="nourriture" style="vertical-align:bottom;">
+
+351 277 094
+
+‹/span>‹/td>
+‹td>‹span title="Poissons clowns">‹img src="images/ouvriere.png" alt="Poissons clowns" height="25" style="vertical-align:bottom;"> 34 407 422‹/span>‹/td>
+‹td> ‹/td>
+‹td>‹a href="jeu.php?page=messageriev2&type=chasse">‹img src="images/bullevert.png" height="25" style="vertical-align:bottom; " alt="MP Chasse"> 0‹/a>‹/td>
+‹td>‹a href="jeu.php?page=messageriev2&type=convoi">‹img src="images/bullebleu.png" height="25" style="vertical-align:bottom; margin-left:15px; " alt="MP Convoi"> 0‹/a>‹/td>
+‹/tr>
+‹/tbody>
+‹/table>
+
+
+
+
+
+
+
+
+
+
+‹/div>
+
+
+‹div id="horloge" style="background:#FF0004; width: 100px; height: 25px; padding-top:5px; position: absolute; left: calc(50% - 420px); top: 200px; background: #092869; color: #FFFFFF; border: 1px #ffffff solid; text-align: center; ">14:37:30‹/div>‹/div>
+
+
+
+
+‹div id="bas">
+
+‹div id="menutelephone">‹img src="images/menu.png" height="20" style="vertical-align:middle; float:left; margin-left:15px;"> MENU‹/div>
+‹div id="menutelephone2">
+
+‹a href="jeu.php">‹div class="onglettelephone" id="logouttel" style="border-bottom:1px solid #FFFFFF;">‹img src="images/home.png" height="25" style="vertical-align:middle; float:left; margin-top:-3px;"> ACCUEIL‹/div>‹/a>
+
+‹div class="onglettelephone" id="bulletel">‹img src="images/flechedroite.png" style="vertical-align:middle; float:left; margin-top:-5px;"> DANS MA BULLE‹/div>
+‹div id="contenu_bulle_tel">
+‹a href="jeu.php?page=productionunite">‹div class="interieurtel">‹img src="images/production_unite.png" height="25" style="vertical-align:middle; float:left; margin-top:-3px;">PRODUCTION UNITE‹/div>‹/a>
+‹a href="jeu.php?page=construction">‹div class="interieurtel">‹img src="images/construction.png" height="25" style="vertical-align:middle; float:left; margin-top:-3px;">CONSTRUCTION‹/div>‹/a>
+‹a href="jeu.php?page=laboratoire">‹div class="interieurtel">‹img src="images/laboratoire.png" height="25" style="vertical-align:middle; float:left; margin-top:-3px;">RECHERCHE‹/div>‹/a>
+‹a href="jeu.php?page=ressource">‹div class="interieurtel">‹img src="images/nourriture2.png" height="25" style="vertical-align:middle; float:left; margin-top:-3px;">RESSOURCES‹/div>‹/a>
+‹a href="jeu.php?page=armee">‹div class="interieurtel">‹img src="images/armee.png" height="25" style="vertical-align:middle; float:left; margin-top:-3px;">ARMEE‹/div>‹/a>
+‹a href="jeu.php?page=ennemies">‹div class="interieurtel">‹img src="images/ennemie.png" height="25" style="vertical-align:middle; float:left; margin-top:-3px;">ENNEMIS‹/div>‹/a>
+‹a href="jeu.php?page=colonies">‹div class="interieurtel">‹img src="images/esclavage.png" height="25" style="vertical-align:middle; float:left; margin-top:-3px;">ESCLAVAGE‹/div>‹/a>
+‹a href="jeu.php?page=chasse">‹div class="interieurtel">‹img src="images/colonie.png" height="25" style="vertical-align:middle; float:left; margin-top:-3px;">EXPLORATION‹/div>‹/a>
+‹a href="jeu.php?page=commerce">‹div class="interieurtel">‹img src="images/commerce.png" height="25" style="vertical-align:middle; float:left; margin-top:-3px;">COMMERCE‹/div>‹/a>
+‹/div>
+
+
+‹div class="onglettelephone" id="alliancetel">‹img src="images/flechedroite.png" style="vertical-align:middle; float:left; margin-top:-5px;"> ALLIANCE‹/div>
+‹div id="contenu_alliance_tel">
+‹a href="jeu.php?page=chatalliance">‹div class="interieurtel">‹img src="images/chat.png" height="25" style="vertical-align:middle; float:left; margin-top:-3px;">CHAT‹/div>‹/a>
+‹a href="jeu.php?page=forum">‹div class="interieurtel">‹img src="images/forum.png" height="25" style="vertical-align:middle; float:left; margin-top:-3px;">FORUM‹/div>‹/a>
+‹a href="jeu.php?page=quete">‹div class="interieurtel">‹img src="images/quete.png" height="25" style="vertical-align:middle; float:left; margin-top:-3px;">QUETE D'ALLIANCE‹/div>‹/a>
+‹a href="jeu.php?page=listemembre">‹div class="interieurtel">‹img src="images/membre.png" height="25" style="vertical-align:middle; float:left; margin-top:-3px;">MEMBRES‹/div>‹/a>
+‹a href="jeu.php?page=candidature">‹div class="interieurtel">‹img src="images/candidature.png" height="25" style="vertical-align:middle; float:left; margin-top:-3px;">CANDIDATURE‹/div>‹/a>
+‹a href="jeu.php?page=mc">‹div class="interieurtel">‹img src="images/mc.png" height="25" style="vertical-align:middle; float:left; margin-top:-3px;">MESSAGE COLLECTIF‹/div>‹/a>
+‹a href="jeu.php?page=diplomatie">‹div class="interieurtel">‹img src="images/diplomatie.png" height="25" style="vertical-align:middle; float:left; margin-top:-3px;">DIPLOMATIE‹/div>‹/a>
+‹a href="jeu.php?page=descriptionalliance">‹div class="interieurtel">‹img src="images/description.png" height="25" style="vertical-align:middle; float:left; margin-top:-3px;">DESCRIPTION‹/div>‹/a>
+‹a href="jeu.php?page=optionalliance">‹div class="interieurtel">‹img src="images/option.png" height="25" style="vertical-align:middle; float:left; margin-top:-3px;">OPTIONS‹/div>‹/a>
+‹/div>
+
+
+
+
+‹div class="onglettelephone" id="communautetel">‹img src="images/flechedroite.png" style="vertical-align:middle; float:left; margin-top:-5px;"> COMMUNAUTE‹/div>
+‹div id="contenu_communaute_tel">
+‹a href="jeu.php?page=cgnew">‹div class="interieurtel">‹img src="images/chat.png" height="25" style="vertical-align:middle; float:left; margin-top:-3px;">CHAT‹/div>‹/a>
+‹a href="jeu.php?page=classementjoueur">‹div class="interieurtel">‹img src="images/classement_joueur.png" height="25" style="vertical-align:middle; float:left; margin-top:-3px;">CLASSEMENT JOUEURS‹/div>‹/a>
+‹a href="jeu.php?page=classementalliance">‹div class="interieurtel">‹img src="images/classement_alliance.png" height="25" style="vertical-align:middle; float:left; margin-top:-3px;">CLASSEMENT ALLIANCES‹/div>‹/a>
+‹a href="jeu.php?page=hof">‹div class="interieurtel">‹img src="images/icone_attaque.png" height="25" style="vertical-align:middle; float:left; margin-top:-3px;">HALL OF FAME‹/div>‹/a>
+‹a href="jeu.php?page=monprofil">‹div class="interieurtel">‹img src="images/profil.png" height="25" style="vertical-align:middle; float:left; margin-top:-3px;">MON PROFIL‹/div>‹/a>
+‹a href="jeu.php?page=moncompte">‹div class="interieurtel">‹img src="images/option.png" height="25" style="vertical-align:middle; float:left; margin-top:-3px;">MON COMPTE‹/div>‹/a>
+‹a href="http://forum.abyssus.games/" target="_blank">‹div class="interieurtel">‹img src="images/forum.png" height="25" style="vertical-align:middle; float:left; margin-top:-3px;">FORUM‹/div>‹/a>
+‹a href="jeu.php?page=parrainnage">‹div class="interieurtel">‹img src="images/parrain.png" height="25" style="vertical-align:middle; float:left; margin-top:-3px;">PARRAINAGE‹/div>‹/a>
+‹/div>
+
+
+
+‹div class="onglettelephone" id="cplustel">‹img src="images/flechedroite.png" style="vertical-align:middle; float:left; margin-top:-5px;"> COMPTE PREMIUM‹/div>
+‹div id="contenu_premium_tel">
+‹a href="jeu.php?page=paiement">‹div class="interieurtel">‹img src="images/acheter.png" height="25" style="vertical-align:middle; float:left; margin-top:-3px;">ACHETER PREMIUM‹/div>‹/a>
+‹a href="jeu.php?page=premium">‹div class="interieurtel">‹img src="images/premium.png" height="25" style="vertical-align:middle; float:left; margin-top:-3px;">GERER PREMIUM‹/div>‹/a>
+‹a href="jeu.php?page=simulateurcombat">‹div class="interieurtel">‹img src="images/icone_attaque.png" height="25" style="vertical-align:middle; float:left; margin-top:-3px;">SIMULATEUR ATTAQUE‹/div>‹/a>
+‹a href="jeu.php?page=simulateurchasse">‹div class="interieurtel">‹img src="images/colonie.png" height="25" style="vertical-align:middle; float:left; margin-top:-3px;">SIMULATEUR EXPLORATION‹/div>‹/a>
+‹a href="jeu.php?page=calculdistance">‹div class="interieurtel">‹img src="images/distance.png" height="25" style="vertical-align:middle; float:left; margin-top:-3px;">CALCUL DE DISTANCE‹/div>‹/a>
+‹a href="jeu.php?page=tdp">‹div class="interieurtel">‹img src="images/tempsproduction.png" height="25" style="vertical-align:middle; float:left; margin-top:-3px;">TEMPS DE PRODUCTION‹/div>‹/a>
+‹a href="jeu.php?page=messtats">‹div class="interieurtel">‹img src="images/stats.png" height="25" style="vertical-align:middle; float:left; margin-top:-3px;">MES STATISTIQUES‹/div>‹/a>
+‹a href="jeu.php?page=statsjeu">‹div class="interieurtel">‹img src="images/stats2.png" height="25" style="vertical-align:middle; float:left; margin-top:-3px;">STATISTIQUES DU JEU‹/div>‹/a>
+‹a href="jeu.php?page=blocnote">‹div class="interieurtel">‹img src="images/blocnote.png" height="25" style="vertical-align:middle; float:left; margin-top:-3px;">BLOC NOTE‹/div>‹/a>
+
+‹a href="jeu.php?page=screen">‹div class="interieurtel">‹img src="images/screen.png" height="25" style="vertical-align:middle; float:left; margin-top:-3px;">SCREENSHOT‹/div>‹/a>
+‹a href="jeu.php?page=smiley">‹div class="interieurtel">‹img src="images/smiley.png" height="25" style="vertical-align:middle; float:left; margin-top:-3px;">SMILEY‹/div>‹/a>
+‹a href="jeu.php?page=gestionrc">‹div class="interieurtel">‹img src="images/classeur.png" height="25" style="vertical-align:middle; float:left; margin-top:-3px;">GESTION RC‹/div>‹/a>
+‹a href="jeu.php?page=configcouleur">‹div class="interieurtel">‹img src="images/peinture.png" height="25" style="vertical-align:middle; float:left; margin-top:-3px;">PERSONNALISATION‹/div>‹/a>
+
+‹/div>
+
+‹div class="onglettelephone" id="aidetel">‹img src="images/flechedroite.png" style="vertical-align:middle; float:left; margin-top:-5px;"> AIDE‹/div>
+‹div id="contenu_aide_tel">
+
+‹a href="jeu.php?page=reglement">‹div class="interieurtel">‹img src="images/reglement.png" height="25" style="vertical-align:middle; float:left; margin-top:-3px;">REGLEMENT‹/div>‹/a>
+‹a href="jeu.php?page=cgu">‹div class="interieurtel">‹img src="images/reglement.png" height="25" style="vertical-align:middle; float:left; margin-top:-3px;">CGU‹/div>‹/a>
+‹a href="jeu.php?page=cgv">‹div class="interieurtel">‹img src="images/reglement.png" height="25" style="vertical-align:middle; float:left; margin-top:-3px;">CGV‹/div>‹/a>
+
+‹a href="jeu.php?page=premiereheure">‹div class="interieurtel">‹img src="images/aide.png" height="25" style="vertical-align:middle; float:left; margin-top:-3px;">PREMIERES HEURES‹/div>‹/a>
+‹a href="jeu.php?page=explocombat">‹div class="interieurtel">‹img src="images/aide.png" height="25" style="vertical-align:middle; float:left; margin-top:-3px;">EXPLORATION ET COMBATS‹/div>‹/a>
+‹a href="jeu.php?page=aideconstruction">‹div class="interieurtel">‹img src="images/aide.png" height="25" style="vertical-align:middle; float:left; margin-top:-3px;">CONSTRUCTIONS ET RECHERCHES‹/div>‹/a>
+‹a href="jeu.php?page=aidealliance">‹div class="interieurtel">‹img src="images/aide.png" height="25" style="vertical-align:middle; float:left; margin-top:-3px;">ALLIANCE ET QUETES‹/div>‹/a>
+‹a href="jeu.php?page=abreviation">‹div class="interieurtel">‹img src="images/aide.png" height="25" style="vertical-align:middle; float:left; margin-top:-3px;">ABREVIATIONS‹/div>‹/a>
+
+
+‹a href="jeu.php?page=merci">‹div class="interieurtel">‹img src="images/credit.png" height="25" style="vertical-align:middle; float:left; margin-top:-3px;">REMERCIEMENTS‹/div>‹/a>
+
+
+‹/div>
+
+‹a href="jeu.php?page=logout">‹div class="onglettelephone" id="logouttel" style="">‹img src="images/logout.png" height="25" style="vertical-align:middle; float:left; margin-top:-3px;"> LOGOUT‹/div>‹/a>‹/div>
+
+
+
+‹div id="menu">
+‹div id="home" class="onglet">‹a href="jeu.php">‹img src="images/home.png" alt="Accueil" height="20">‹/a>‹/div>
+‹div class="onglet" id="bulle">Dans ma Bulle‹/div>
+‹div class="onglet" id="alliance">Alliance
+‹img src="images/bulle.png" style="vertical-align:bottom;" height="20">
+
+
+‹/div>
+‹div class="onglet" id="communaute">Communauté ‹/div>
+‹div class="onglet" id="cplus">Compte Premium ‹/div>
+‹div class="onglet" id="aide">Aide‹/div>
+‹div class="onglet" id="logout">‹a href="jeu.php?page=logout">‹img src="images/logout.png" alt="Logout" height="20">‹/a>‹/div>
+‹/div>
+
+‹div id="menu_bulle">
+‹a href="jeu.php?page=productionunite">‹div class="interieur">‹img src="images/production_unite.png">‹br/>PRODUCTION ‹br/> D'UNITES‹/div>‹/a>
+‹a href="jeu.php?page=construction">‹div class="interieur">‹img src="images/construction.png">‹br/>CONSTRUCTION‹/div>‹/a>
+‹a href="jeu.php?page=laboratoire">‹div class="interieur">‹img src="images/laboratoire.png">‹br/>RECHERCHE‹/div>‹/a>
+‹a href="jeu.php?page=ressource">‹div class="interieur">‹img src="images/nourriture2.png">‹br/>RESSOURCES‹/div>‹/a>
+‹a href="jeu.php?page=armee">‹div class="interieur">‹img src="images/armee.png">‹br/>ARMEE‹/div>‹/a>
+‹a href="jeu.php?page=ennemies">‹div class="interieur">‹img src="images/ennemie.png">‹br/>ENNEMIS‹/div>‹/a>
+‹a href="jeu.php?page=colonies">‹div class="interieur">‹img src="images/esclavage.png">‹br/>ESCLAVAGE‹/div>‹/a>
+‹a href="jeu.php?page=chasse">‹div class="interieur">‹img src="images/colonie.png">‹br/>EXPLORATION‹/div>‹/a>
+‹a href="jeu.php?page=commerce">‹div class="interieur">‹img src="images/commerce.png">‹br/>COMMERCE‹/div>‹/a>
+‹/div>
+
+
+
+‹div id="menu_alliance" style="z-index:100;">
+‹a href="jeu.php?page=chatalliance">‹div class="interieur">‹img src="images/chat.png">‹br/>CHAT‹/div>‹/a>
+‹a href="jeu.php?page=forum">‹div class="interieur">‹img src="images/forum.png">‹br/>FORUM‹/div>‹/a>
+‹a href="jeu.php?page=quete">‹div class="interieur">‹img src="images/quete.png">‹br/>QUETE D'ALLIANCE‹/div>‹/a>
+‹a href="jeu.php?page=listemembre">‹div class="interieur">‹img src="images/membre.png">‹br/>MEMBRES‹/div>‹/a>
+‹a href="jeu.php?page=candidature">‹div class="interieur">‹img src="images/candidature.png">‹br/>CANDIDATURES‹/div>‹/a>
+‹a href="jeu.php?page=mc">‹div class="interieur">‹img src="images/mc.png">‹br/>MESSAGE‹br/>COLLECTIF‹/div>‹/a>
+‹a href="jeu.php?page=diplomatie">‹div class="interieur">‹img src="images/diplomatie.png">‹br/>DIPLOMATIE‹/div>‹/a>
+‹a href="jeu.php?page=descriptionalliance">‹div class="interieur">‹img src="images/description.png">‹br/>DESCRIPTION‹/div>‹/a>
+‹a href="jeu.php?page=optionalliance">‹div class="interieur">‹img src="images/option.png">‹br/>OPTIONS‹/div>‹/a>
+‹/div>
+
+
+‹div id="menu_communaute">
+‹a href="jeu.php?page=cgnew">‹div class="interieur">‹img src="images/chat.png">‹br/>CHAT‹/div>‹/a>
+‹a href="jeu.php?page=classementjoueur">‹div class="interieur">‹img src="images/classement_joueur.png">‹br/>CLASSEMENT‹br/>JOUEURS‹/div>‹/a>
+‹a href="jeu.php?page=classementalliance">‹div class="interieur">‹img src="images/classement_alliance.png">‹br/>CLASSEMENT‹br/>ALLIANCES‹/div>‹/a>
+‹a href="jeu.php?page=hof">‹div class="interieur">‹img src="images/icone_attaque.png">‹br/>HALL‹br/>OF FAME‹/div>‹/a>
+‹a href="jeu.php?page=monprofil">‹div class="interieur">‹img src="images/profil.png">‹br/>MON PROFIL‹/div>‹/a>
+‹a href="jeu.php?page=moncompte">‹div class="interieur">‹img src="images/option.png">‹br/>MON COMPTE‹/div>‹/a>
+‹a href="http://forum.abyssus.games/" target="_blank">‹div class="interieur">‹img src="images/forum.png">‹br/>FORUM‹/div>‹/a>
+‹a href="jeu.php?page=parrainnage">‹div class="interieur">‹img src="images/parrain.png">‹br/>PARRAINAGE‹/div>‹/a>
+
+
+
+
+‹/div>
+‹div id="menu_cplus">
+‹a href="jeu.php?page=paiement">‹div class="interieur">‹img src="images/acheter.png">‹br/>ACHETER PREMIUM‹/div>‹/a>
+‹a href="jeu.php?page=premium">‹div class="interieur">‹img src="images/premium.png">‹br/>GERER PREMIUM‹/div>‹/a>
+‹a href="jeu.php?page=simulateurcombat">‹div class="interieur">‹img src="images/icone_attaque.png" height="48">‹br/>SIMULATEUR ATTAQUE‹/div>‹/a>
+‹a href="jeu.php?page=simulateurchasse">‹div class="interieur">‹img src="images/colonie.png">‹br/>SIMULATEUR EXPLORATION‹/div>‹/a>
+‹a href="jeu.php?page=calculdistance">‹div class="interieur">‹img src="images/distance.png" height="48">‹br/>CALCUL DE DISTANCE‹/div>‹/a>
+‹a href="jeu.php?page=tdp">‹div class="interieur">‹img src="images/tempsproduction.png" height="48">‹br/>TEMPS DE PRODUCTION‹/div>‹/a>
+‹a href="jeu.php?page=messtats">‹div class="interieur">‹img src="images/stats.png" height="48">‹br/>MES STATISTIQUES‹/div>‹/a>
+‹a href="jeu.php?page=statsjeu">‹div class="interieur">‹img src="images/stats2.png" height="48">‹br/>STATISTIQUES DU JEU‹/div>‹/a>
+‹a href="jeu.php?page=blocnote">‹div class="interieur">‹img src="images/blocnote.png" height="48">‹br/>BLOC NOTE‹/div>‹/a>
+
+
+‹a href="jeu.php?page=screen">‹div class="interieur">‹img src="images/screen.png" height="48">‹br/>SCREENSHOT‹/div>‹/a>
+‹a href="jeu.php?page=smiley">‹div class="interieur">‹img src="images/smiley.png" height="48">‹br/>SMILEY‹/div>‹/a>
+‹a href="jeu.php?page=gestionrc">‹div class="interieur">‹img src="images/classeur.png" height="48">‹br/>GESTION RC‹/div>‹/a>
+‹a href="jeu.php?page=configcouleur">‹div class="interieur">‹img src="images/peinture.png" height="48">‹br/>CONFIGURATION COULEURS‹/div>‹/a>
+
+
+
+‹/div>
+‹div id="menu_aide">
+
+‹a href="jeu.php?page=reglement">‹div class="interieur">‹img src="images/reglement.png">‹br/>REGLEMENT‹/div>‹/a>
+‹a href="jeu.php?page=cgu">‹div class="interieur">‹img src="images/reglement.png">‹br/>CGU‹/div>‹/a>
+‹a href="jeu.php?page=cgv">‹div class="interieur">‹img src="images/reglement.png">‹br/>CGV‹/div>‹/a>
+
+‹a href="jeu.php?page=premiereheure">‹div class="interieur">‹img src="images/aide.png">‹br/>PREMIERES HEURES‹/div>‹/a>
+‹a href="jeu.php?page=explocombat">‹div class="interieur">‹img src="images/aide.png">‹br/>EXPLORATION ET COMBATS‹/div>‹/a>
+‹a href="jeu.php?page=aideconstruction">‹div class="interieur">‹img src="images/aide.png">‹br/>CONSTRUCTIONS ET RECHERCHES‹/div>‹/a>
+‹a href="jeu.php?page=aidealliance">‹div class="interieur">‹img src="images/aide.png">‹br/>ALLIANCE ET QUETES‹/div>‹/a>
+‹a href="jeu.php?page=abreviation">‹div class="interieur">‹img src="images/aide.png">‹br/>ABREVIATIONS‹/div>‹/a>
+
+
+‹a href="jeu.php?page=merci">‹div class="interieur">‹img src="images/credit.png">‹br/>REMERCIEMENTS‹/div>‹/a>
+
+‹/div>
+
+‹script>
+
+
+window.onresize = function(){
+
+var larg = (document.body.clientWidth);
+
+if (larg > 1150) { $('#menutelephone2').hide(); }
+
+
+}
+
+
+$('#menutelephone').click(function(){ $('#menutelephone2').toggle(); });
+
+
+$('#bulle').hover(function(){$('#menu_bulle').show();});
+$('#alliance').hover(function(){$('#menu_alliance').show();});
+$('#communaute').hover(function(){$('#menu_communaute').show();});
+$('#cplus').hover(function(){$('#menu_cplus').show();});
+$('#aide').hover(function(){$('#menu_aide').show();});
+
+$('#menu_bulle, #menu_alliance, #menu_communaute, #menu_cplus, #menu_aide').hover(function(){}, function(){$(this).hide();});
+
+
+$('#bas, #bloc, #alliance').hover(function(){ $('#menu_bulle').hide(); });
+$('#bas, #bloc, #bulle, #communaute').hover(function(){ $('#menu_alliance').hide(); });
+$('#bas, #bloc, #alliance, #cplus').hover(function(){ $('#menu_communaute').hide(); });
+$('#bas, #bloc, #communaute, #aide').hover(function(){ $('#menu_cplus').hide(); });
+$('#bas, #bloc, #cplus, #logout').hover(function(){ $('#menu_aide').hide(); });
+
+
+$('#bulletel').click(function(){ $('#contenu_bulle_tel').toggle();
+
+if ($(this).children('img').attr('src') == 'images/flechebas.png') { $(this).children('img').attr('src', 'images/flechedroite.png'); }
+else { $(this).children('img').attr('src', 'images/flechebas.png');}
+
+});
+
+
+$('#alliancetel').click(function(){ $('#contenu_alliance_tel').toggle();
+
+if ($(this).children('img').attr('src') == 'images/flechebas.png') { $(this).children('img').attr('src', 'images/flechedroite.png'); }
+else { $(this).children('img').attr('src', 'images/flechebas.png');}
+
+});
+
+
+$('#communautetel').click(function(){ $('#contenu_communaute_tel').toggle();
+
+if ($(this).children('img').attr('src') == 'images/flechebas.png') { $(this).children('img').attr('src', 'images/flechedroite.png'); }
+else { $(this).children('img').attr('src', 'images/flechebas.png');}
+
+});
+
+$('#cplustel').click(function(){ $('#contenu_premium_tel').toggle();
+
+if ($(this).children('img').attr('src') == 'images/flechebas.png') { $(this).children('img').attr('src', 'images/flechedroite.png'); }
+else { $(this).children('img').attr('src', 'images/flechebas.png');}
+
+});
+
+$('#aidetel').click(function(){ $('#contenu_aide_tel').toggle();
+
+if ($(this).children('img').attr('src') == 'images/flechebas.png') { $(this).children('img').attr('src', 'images/flechedroite.png'); }
+else { $(this).children('img').attr('src', 'images/flechebas.png');}
+
+});
+
+
+
+
+
+‹/script>
+
+
+
+
+
+
+
+‹div id="bloc">
+
+
+‹center>‹h1>SIMULATEUR DE COMBAT‹/h1>‹/center>
+‹form action="" method="post">
+‹table width="100%" border="0" style="border-collapse: collapse; border: 1px solid #CCCCCC;">
+‹tbody>
+‹tr>
+‹td colspan="2" align="center">‹img src="images/copiercoller4.png" height="20" alt="" style="vertical-align: bottom;" id="ccatt"/> ‹img src="images/fleche_armee.png" height="20" alt="" style="vertical-align: bottom;" id="all_arme" class="pointer"/> ‹strong>ATTAQUANT‹/strong>‹/td>
+‹td colspan="2" align="center">‹img src="images/copiercoller4.png" height="20" alt="" style="vertical-align: bottom;" id="ccdef"/> ‹img src="images/fleche_armee.png" height="20" alt="" style="vertical-align: bottom;" id="all_arme2" class="pointer"/> ‹strong>DEFENSEUR‹/strong>‹/td>
+‹td colspan="2" align="center">‹img src="images/fleche_armee.png" height="20" alt="" style="vertical-align: bottom;" id="all_arme3" class="pointer"/> ‹strong>ATTAQUANT‹/strong>‹/td>
+‹/tr>
+‹tr>
+‹td align="right">‹span class="masque2">Remora :‹/span>‹/td>
+‹td>‹input name="SJ_att" type="text" id="SJ" class="att" data-arme="10000000" value="">‹/td>
+‹td align="right">‹span class="masque2">Remora :‹/span>‹/td>
+‹td>‹input name="SJ_def" type="text" class="def" id="SJ_def" value="" data-arme="10000000">‹/td>
+‹td align="right">Ecaille :‹/td>
+‹td>‹input type="text" id="ecaille_att" data-arme="17" name="ecaille_att" class="secondaire att_stats" value="17">‹/td>
+‹/tr>
+‹tr>
+‹td align="right">‹span class="masque2">Petite Roussette :‹/span>‹/td>
+‹td>‹input type="text" name="S_att" id="S" class="att" data-arme="181111" value="">‹/td>
+‹td align="right">‹span class="masque2">Petite Roussette :‹/span>‹/td>
+‹td>‹input type="text" name="S_def" id="S_def" value="" class="def" data-arme="181111">‹/td>
+‹td align="right">Morsure :‹/td>
+‹td>‹input type="text" id="morsure_att" data-arme="16" name="morsure_att" class="secondaire att_stats" value="16">‹/td>
+‹/tr>
+‹tr>
+‹td align="right">‹span class="masque2">Roussette :‹/span>‹/td>
+‹td>‹input type="text" name="SC_att" id="SC" class="att" data-arme="0" value="">‹/td>
+‹td align="right">‹span class="masque2">Roussette :‹/span>‹/td>
+‹td>‹input type="text" name="SC_def" id="SC_def" value="" class="def" data-arme="0">‹/td>
+‹td align="right">Mutation :‹/td>
+‹td>‹input type="text" name="mutation_att" data-arme="8" class="secondaire att_stats" value="8">‹/td>
+‹/tr>
+‹tr>
+‹td align="right">‹span class="masque2">Grande Roussette :‹/span>‹/td>
+‹td>‹input type="text" name="R_att" id="R" class="att" data-arme="0" value="">‹/td>
+‹td align="right">‹span class="masque2">Grande Roussette :‹/span>‹/td>
+‹td>‹input type="text" name="R_def" id="R_def" value="" class="def" data-arme="0">‹/td>
+‹td colspan="2" align="center">‹img src="images/fleche_armee.png" height="20" alt="" style="vertical-align: bottom;" id="all_arme4" class="pointer"/> ‹strong>DEFENSEUR‹/strong>‹/td>
+‹/tr>
+‹tr>
+‹td align="right">‹span class="masque2">Requin Pélerin :‹/span>‹/td>
+‹td>‹input type="text" name="RB_att" id="RB" class="att" data-arme="0" value="">‹/td>
+‹td align="right">‹span class="masque2">Requin Pélerin :‹/span>‹/td>
+‹td>‹input type="text" name="RB_def" id="RB_def" value="" class="def" data-arme="0">‹/td>
+‹td align="right">Ecaille :‹/td>
+‹td>‹input type="text" id="ecaille_def" name="ecaille_def" class="secondaire def_stats" value="" data-arme="17">‹/td>
+‹/tr>
+‹tr>
+‹td align="right">‹span class="masque2">Murène :‹/span>‹/td>
+‹td>‹input type="text" name="M_att" id="M" class="att" data-arme="0" value="">‹/td>
+‹td align="right">‹span class="masque2">Murène :‹/span>‹/td>
+‹td>‹input type="text" name="M_def" id="M_def" value="" class="def" data-arme="0">‹/td>
+‹td align="right">Morsure :‹/td>
+‹td>‹input type="text" id="morsure_def" name="morsure_def" class="secondaire def_stats" value="" data-arme="16">‹/td>
+‹/tr>
+‹tr>
+‹td align="right">‹span class="masque2">Murène Electrique :‹/span>‹/td>
+‹td>‹input type="text" name="PP_att" id="PP" class="att" data-arme="0" value="">‹/td>
+‹td align="right">‹span class="masque2">Murène Electrique :‹/span>‹/td>
+‹td>‹input type="text" name="PP_def" id="PP_def" value="" class="def" data-arme="0">‹/td>
+‹td align="right">Mutation :‹/td>
+‹td>‹input type="text" name="mutation_def" class="secondaire def_stats" value="" data-arme="8">‹/td>
+‹/tr>
+‹tr>
+‹td align="right">‹span class="masque2">Requin Marteau :‹/span>‹/td>
+‹td>‹input type="text" name="B_att" id="B" class="att" data-arme="0" value="">‹/td>
+‹td align="right">‹span class="masque2">Requin Marteau :‹/span>‹/td>
+‹td>‹input type="text" name="B_def" id="B_def" value="" class="def" data-arme="0">‹/td>
+‹td align="right">Récif :‹/td>
+‹td>‹input type="text" id="rr_def" name="recif" class="secondaire def_stats" value="" data-arme="0">‹/td>
+‹/tr>
+‹tr>
+‹td align="right">‹span class="masque2">Requin Lézard :‹/span>‹/td>
+‹td>‹input type="text" name="BC_att" id="BC" class="att" data-arme="0" value="">‹/td>
+‹td align="right">‹span class="masque2">Requin Lézard :‹/span>‹/td>
+‹td>‹input type="text" name="BC_def" id="BC_def" value="" class="def" data-arme="0">‹/td>
+‹td align="right">Barrière :‹/td>
+‹td>‹input type="text" id="bdc_def" name="barriere" class="secondaire def_stats" value="" data-arme="7">‹/td>
+‹/tr>
+‹tr>
+‹td align="right">‹span class="masque2">Requin Lézard Vétéran :‹/span>‹/td>
+‹td>‹input type="text" name="GRB_att" id="GRB" class="att" data-arme="0" value="">‹/td>
+‹td align="right">‹span class="masque2">Requin Lézard Vétéran :‹/span>‹/td>
+‹td>‹input type="text" name="GRB_def" id="GRB_def" value="" class="def" data-arme="0">‹/td>
+‹td> ‹/td>
+‹td> ‹/td>
+‹/tr>
+‹tr>
+‹td align="right">‹span class="masque2">Requin Blanc :‹/span>‹/td>
+‹td>‹input type="text" name="OQ_att" id="OQ" class="att" data-arme="0" value="">‹/td>
+‹td align="right">‹span class="masque2">Requin Blanc :‹/span>‹/td>
+‹td>‹input type="text" name="OQ_def" id="OQ_def" value="" class="def" data-arme="0">‹/td>
+‹td colspan="2" align="center">‹strong>LIEU DE VOTRE ATTAQUE‹/strong>‹/td>
+‹/tr>
+‹tr>
+‹td align="right">‹span class="masque2">Grand Requin Blanc :‹/span>‹/td>
+‹td>‹input type="text" name="OQC_att" id="OQC" class="att" data-arme="0" value="">‹/td>
+‹td align="right">‹span class="masque2">Grand Requin Blanc :‹/span>‹/td>
+‹td>‹input type="text" name="OQC_def" id="OQC_def" value="" class="def" data-arme="0">‹/td>
+‹td colspan="2" align="center">‹input name="lieu" type="radio" value="tm" checked="checked" class="lieu">
+Territoire Marin
+‹/td>
+‹/tr>
+‹tr>
+‹td align="right">‹span class="masque2">Kraken :‹/span>‹/td>
+‹td>‹input type="text" name="K_att" id="K" class="att" data-arme="0" value="">‹/td>
+‹td align="right">‹span class="masque2">Kraken :‹/span>‹/td>
+‹td>‹input type="text" name="K_def" id="K_def" value="" class="def" data-arme="0">‹/td>
+‹td colspan="2" align="center">‹input type="radio" name="lieu" value="recif" class="lieu" >
+Récif rocheux
+‹/td>
+‹/tr>
+‹tr>
+‹td align="right">‹span class="masque2">Kraken Immortel :‹/span>‹/td>
+‹td>‹input type="text" name="L_att" id="L" class="att" data-arme="0" value="">‹/td>
+‹td align="right">‹span class="masque2">Kraken Immortel :‹/span>‹/td>
+‹td>‹input type="text" name="L_def" id="L_def" value="" class="def" data-arme="0">‹/td>
+‹td colspan="2" align="center">‹input type="radio" name="lieu" value="barriere" class="lieu" >
+Barrière de corail
+‹/td>
+‹/tr>
+‹tr>
+‹td align="right">Total FDF :‹/td>
+‹td align="left" id="total_fdf_att">0‹/td>
+‹td align="right">Total FDF :‹/td>
+‹td align="left" id="total_fdf_def">0‹/td>
+‹td align="center"> ‹/td>
+‹td align="center"> ‹/td>
+‹/tr>
+‹tr>
+‹td align="right">Total FDD :‹/td>
+‹td align="left" id="total_fdd_att">0‹/td>
+‹td align="right">Total FDD :‹/td>
+‹td align="left" id="total_fdd_def">0‹/td>
+‹td align="center"> ‹/td>
+‹td align="center"> ‹/td>
+‹/tr>
+‹tr>
+‹td align="right">Total VIE :‹/td>
+‹td align="left" id="total_vie_att">0‹/td>
+‹td align="right">Total VIE :‹/td>
+‹td align="left" id="total_vie_def">0‹/td>
+‹td align="center"> ‹/td>
+‹td align="center"> ‹/td>
+‹/tr>
+‹tr>‹br/>
+‹td colspan="6" align="center">‹input type="submit" name="simulation" value="Simuler" class="button">‹/td>
+‹/tr>
+‹tr>
+‹td colspan="6" align="center"> ‹/td>
+‹/tr>
+‹/tbody>
+‹/table>
+‹/form>
+
+‹div id="ccatt2" style="display:none; position: fixed; z-index: 100; width: 500px; height: 350px; top:calc(50% - 175px); left:calc(50% - 250px); background: #041255; text-align: center; padding: 15px; ">
+
+Coller les troupes d'un rapport de combat : ‹br/>
+‹i style="font-size: 10px;">Exemple : Troupes en attaque : 3000 Remora, 5000 Petite Roussette, 100 Roussette, 200 Grande Roussette‹/i>‹br/>‹br/>
+
+‹textarea id="rcatt" style="width: calc(100% - 30px); height: 200px;">‹/textarea>
+‹br/>‹br/>
+‹button id="bouton_cc_att">Appliquer‹/button>
+‹/div>
+
+
+
+‹div id="ccdef2" style="display:none; position: fixed; z-index: 100; width: 500px; height: 350px; top:calc(50% - 175px); left:calc(50% - 250px); background: #041255; text-align: center; padding: 15px; ">
+
+Coller les troupes d'un rapport de combat : ‹br/>
+‹i style="font-size: 10px;">Exemple : Troupes en attaque : 3000 Remora, 5000 Petite Roussette, 100 Roussette, 200 Grande Roussette‹/i>‹br/>‹br/>
+
+‹textarea id="rcdef" style="width: calc(100% - 30px); height: 200px;">‹/textarea>
+‹br/>‹br/>
+‹button id="bouton_cc_def">Appliquer‹/button>
+‹/div>
+
+
+
+
+
+
+
+‹script>
+
+
+
+function str_replace(search,replace,subject,count){var i=0,j=0,temp='',repl='',sl=0,fl=0,f=[].concat(search),r=[].concat(replace),s=subject,ra=Object.prototype.toString.call(r)==='[object Array]',sa=Object.prototype.toString.call(s)==='[object Array]';s=[].concat(s);if(count){this.window[count]=0}for(i=0,sl=s.length;i‹sl;i++){if(s[i]===''){continue}for(j=0,fl=f.length;j‹fl;j++){temp=s[i]+'';repl=ra?(r[j]!==undefined?r[j]:''):r[0];s[i]=(temp).split(f[j]).join(repl);if(count&&s[i]!==temp){this.window[count]+=(temp.length-s[i].length)/f[j].length}}}return sa?s:s[0]}
+
+function split_rc(rc) {
+
+var rc = str_replace('Troupes en attaque :', '', rc);
+var rc = str_replace('Troupes en défense :', '', rc);
+var rc = str_replace(' ', '', rc);
+
+var rc = rc.split(',');
+
+
+var arr = new Array('0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0');
+
+rc.forEach(function(element) {
+
+var r1 = /(Remora)/i; var trouve1 = element.match(r1);
+var r2 = /(PetiteRoussette)/i; var trouve2 = element.match(r2);
+var r3 = /(GrandeRoussette)/i; var trouve3 = element.match(r3);
+var r4 = /(Roussette)/i; var trouve4 = element.match(r4);
+var r5 = /(RequinPélerin)/i; var trouve5 = element.match(r5);
+var r6 = /(Murène)/i; var trouve6 = element.match(r6);
+var r7 = /(MurèneElectrique)/i; var trouve7 = element.match(r7);
+var r8 = /(RequinMarteau)/i; var trouve8 = element.match(r8);
+var r9 = /(RequinLézard)/i; var trouve9 = element.match(r9);
+var r10 = /(RequinLézardVétéran)/i; var trouve10 = element.match(r10);
+var r11 = /(RequinBlanc)/i; var trouve11 = element.match(r11);
+var r12 = /(GrandRequinBlanc)/i; var trouve12 = element.match(r12);
+var r13 = /(Kraken)/i; var trouve13 = element.match(r13);
+var r14 = /(KrakenImmortel)/i; var trouve14 = element.match(r14);
+
+
+
+if (trouve1 != null) { var element = element.split('Remora'); arr[0] = element[0];}
+
+if (trouve2 != null) { var element = element.split('PetiteRoussette'); arr[1] = element[0];}
+else if (trouve3 != null) { var element = element.split('GrandeRoussette'); arr[3] = element[0];}
+else if (trouve4 != null) { var element = element.split('Roussette'); arr[2] = element[0];}
+
+if (trouve5 != null) { var element = element.split('RequinPélerin'); arr[4] = element[0];}
+
+if (trouve7 != null) { var element = element.split('MurèneElectrique'); arr[6] = element[0];}
+else if (trouve6 != null) { var element = element.split('Murène'); arr[5] = element[0];}
+
+if (trouve8 != null) { var element = element.split('RequinMarteau'); arr[7] = element[0];}
+
+if (trouve10 != null) { var element = element.split('RequinLézardVétéran'); arr[9] = element[0];}
+else if (trouve9 != null) { var element = element.split('RequinLézard'); arr[8] = element[0];}
+
+if (trouve12 != null) { var element = element.split('GrandRequinBlanc'); arr[11] = element[0];}
+else if (trouve11 != null) { var element = element.split('RequinBlanc'); arr[10] = element[0]; }
+
+if (trouve14 != null) { var element = element.split('KrakenImmortel'); arr[13] = element[0];}
+else if (trouve13 != null) { var element = element.split('Kraken'); arr[12] = element[0];}
+
+});
+
+return arr;
+
+
+}
+
+
+$('#ccatt').click(function(){ $('#ccatt2').show();});
+$('#ccdef').click(function(){ $('#ccdef2').show();});
+
+$('#bouton_cc_att').click(function(){
+
+var rc = $('#rcatt').val();
+
+var arr = split_rc(rc);
+
+$('#SJ').val(arr[0]).trigger('keyup');
+$('#S').val(arr[1]).trigger('keyup');
+$('#SC').val(arr[2]).trigger('keyup');
+$('#R').val(arr[3]).trigger('keyup');
+$('#RB').val(arr[4]).trigger('keyup');
+$('#M').val(arr[5]).trigger('keyup');
+$('#PP').val(arr[6]).trigger('keyup');
+$('#B').val(arr[7]).trigger('keyup');
+$('#BC').val(arr[8]).trigger('keyup');
+$('#GRB').val(arr[9]).trigger('keyup');
+$('#OQ').val(arr[10]).trigger('keyup');
+$('#OQC').val(arr[11]).trigger('keyup');
+$('#K').val(arr[12]).trigger('keyup');
+$('#L').val(arr[13]).trigger('keyup');
+
+$('#rcatt').val('');
+$('#ccatt2').hide();
+
+});
+
+$('#bouton_cc_def').click(function(){
+
+var rc = $('#rcdef').val();
+
+
+var arr = split_rc(rc);
+
+$('input[name="SJ_def"]').val(arr[0]).trigger('keyup');
+$('input[name="S_def"]').val(arr[1]).trigger('keyup');
+$('input[name="SC_def"]').val(arr[2]).trigger('keyup');
+$('input[name="R_def"]').val(arr[3]).trigger('keyup');
+$('input[name="RB_def"]').val(arr[4]).trigger('keyup');
+$('input[name="M_def"]').val(arr[5]).trigger('keyup');
+$('input[name="PP_def"]').val(arr[6]).trigger('keyup');
+$('input[name="B_def"]').val(arr[7]).trigger('keyup');
+$('input[name="BC_def"]').val(arr[8]).trigger('keyup');
+$('input[name="GRB_def"]').val(arr[9]).trigger('keyup');
+$('input[name="OQ_def"]').val(arr[10]).trigger('keyup');
+$('input[name="OQC_def"]').val(arr[11]).trigger('keyup');
+$('input[name="K_def"]').val(arr[12]).trigger('keyup');
+$('input[name="L_def"]').val(arr[13]).trigger('keyup');
+
+$('#rcdef').val('');
+$('#ccdef2').hide();
+
+});
+
+
+
+$('.button, #bouton_cc_att, #bouton_cc_def').button();
+
+Number.prototype.nombreFormate=function(decimales,signe,separateurMilliers){var _sNombre=String(this),i,_sRetour="",_sDecimales="";if(decimales==undefined)decimales=2;if(signe==undefined)signe='';if(separateurMilliers==undefined)separateurMilliers=' ';function separeMilliers(sNombre){var sRetour="";while(sNombre.length%3!=0){sNombre="0"+sNombre}for(i=0;i‹sNombre.length;i+=3){if(i==sNombre.length-1)separateurMilliers='';sRetour+=sNombre.substr(i,3)+separateurMilliers}while(sRetour.substr(0,1)=="0"){sRetour=sRetour.substr(1)}return sRetour.substr(0,sRetour.lastIndexOf(separateurMilliers))}if(_sNombre==0){_sRetour=0}else{if(_sNombre.indexOf('.')==-1){for(i=0;i‹decimales;i++){_sDecimales+="0"}_sRetour=separeMilliers(_sNombre)+signe+_sDecimales}else{var sDecimalesTmp=(_sNombre.substr(_sNombre.indexOf('.')+1));if(sDecimalesTmp.length>decimales){var nDecimalesManquantes=sDecimalesTmp.length-decimales;var nDiv=1;for(i=0;i‹nDecimalesManquantes;i++){nDiv*=10}_sDecimales=Math.round(Number(sDecimalesTmp)/nDiv)}_sRetour=separeMilliers(_sNombre.substr(0,_sNombre.indexOf('.')))+String(signe)+_sDecimales}}return _sRetour}
+
+
+function supprEspace(valeur){
+var reg=new RegExp("( )", "g");
+valeur = valeur.replace(reg,'');
+return valeur;
+}
+
+
+function calcul_fdf(sj, s, sc, r, rb, m, pp, b, bc, grb, oq, oqc, k, l, morsure) {
+
+sj = str_replace(' ', '', sj);
+s = str_replace(' ', '', s);
+sc = str_replace(' ', '', sc);
+r = str_replace(' ', '', r);
+rb = str_replace(' ', '', rb);
+m = str_replace(' ', '', m);
+pp = str_replace(' ', '', pp);
+b = str_replace(' ', '', b);
+bc = str_replace(' ', '', bc);
+grb = str_replace(' ', '', grb);
+oq = str_replace(' ', '', oq);
+oqc = str_replace(' ', '', oqc);
+k = str_replace(' ', '', k);
+l = str_replace(' ', '', l);
+
+var fdf = new Array();
+fdf.push(1);fdf.push(60);fdf.push(100);fdf.push(150);fdf.push(150);fdf.push(2);fdf.push(12);fdf.push(2000);fdf.push(100);fdf.push(200);fdf.push(1100);fdf.push(2500);fdf.push(100000);fdf.push(1);
+var HB = (sj * fdf[0]) + (s * fdf[1]) + (sc * fdf[2]) + (r * fdf[3]) + (rb * fdf[4]) + (m * fdf[5]) + (pp * fdf[6]) + (b * fdf[7]) + (bc * fdf[8]) + (grb * fdf[9]) + (oq * fdf[10]) + (oqc * fdf[11]) + (k * fdf[12]) + (l * fdf[13]);
+
+var fdf_AB = Math.ceil(HB * (1+(morsure/10)));
+
+return fdf_AB.nombreFormate(0);
+
+
+}
+
+function calcul_fdd(sj, s, sc, r, rb, m, pp, b, bc, grb, oq, oqc, k, l, morsure) {
+
+sj = str_replace(' ', '', sj);
+s = str_replace(' ', '', s);
+sc = str_replace(' ', '', sc);
+r = str_replace(' ', '', r);
+rb = str_replace(' ', '', rb);
+m = str_replace(' ', '', m);
+pp = str_replace(' ', '', pp);
+b = str_replace(' ', '', b);
+bc = str_replace(' ', '', bc);
+grb = str_replace(' ', '', grb);
+oq = str_replace(' ', '', oq);
+oqc = str_replace(' ', '', oqc);
+k = str_replace(' ', '', k);
+l = str_replace(' ', '', l);
+
+var fdf = new Array();
+fdf.push(1);fdf.push(40);fdf.push(60);fdf.push(100);fdf.push(150);fdf.push(100);fdf.push(240);fdf.push(50);fdf.push(8);fdf.push(20);fdf.push(1);fdf.push(1);fdf.push(100000);fdf.push(1);
+var HB = (sj * fdf[0]) + (s * fdf[1]) + (sc * fdf[2]) + (r * fdf[3]) + (rb * fdf[4]) + (m * fdf[5]) + (pp * fdf[6]) + (b * fdf[7]) + (bc * fdf[8]) + (grb * fdf[9]) + (oq * fdf[10]) + (oqc * fdf[11]) + (k * fdf[12]) + (l * fdf[13]);
+
+var fdf_AB = Math.ceil(HB * (1+(morsure/10)));
+
+return fdf_AB.nombreFormate(0);
+
+
+}
+
+function calcul_vie(sj, s, sc, r, rb, m, pp, b, bc, grb, oq, oqc, k, l, ecaille, rr, bdc, lieu) {
+
+sj = str_replace(' ', '', sj);
+s = str_replace(' ', '', s);
+sc = str_replace(' ', '', sc);
+r = str_replace(' ', '', r);
+rb = str_replace(' ', '', rb);
+m = str_replace(' ', '', m);
+pp = str_replace(' ', '', pp);
+b = str_replace(' ', '', b);
+bc = str_replace(' ', '', bc);
+grb = str_replace(' ', '', grb);
+oq = str_replace(' ', '', oq);
+oqc = str_replace(' ', '', oqc);
+k = str_replace(' ', '', k);
+l = str_replace(' ', '', l);
+rr = str_replace(' ', '', rr);
+bdc = str_replace(' ', '', bdc);
+
+var fdf = new Array();
+fdf.push(2);fdf.push(70);fdf.push(100);fdf.push(150);fdf.push(1250);fdf.push(20);fdf.push(80);fdf.push(800);fdf.push(20);fdf.push(60);fdf.push(600);fdf.push(969);fdf.push(100000);fdf.push(1);
+var HB = (sj * fdf[0]) + (s * fdf[1]) + (sc * fdf[2]) + (r * fdf[3]) + (rb * fdf[4]) + (m * fdf[5]) + (pp * fdf[6]) + (b * fdf[7]) + (bc * fdf[8]) + (grb * fdf[9]) + (oq * fdf[10]) + (oqc * fdf[11]) + (k * fdf[12]) + (l * fdf[13]);
+
+var bonus = 0;
+if (lieu == 2) {bonus = (HB * (1+0.1+(rr*0.05))) - HB;}
+if (lieu == 3) {bonus = (HB * (1+0.3+(bdc*0.15))) - HB;}
+
+var vie_AB = parseInt(HB * (1+(ecaille/10))) + parseInt(bonus);
+
+return vie_AB.nombreFormate(0);
+
+
+}
+
+
+var lieu = $('.lieu:checked').val();
+if (lieu == 'tm') { lieu = 1;}
+if (lieu == 'recif') { lieu = 2;}
+if (lieu == 'barriere') { lieu = 3;}
+
+
+if ($('#L').val() > 0) { var L_calcul = $('#L').val() - 1; var bonus_morsure = Math.floor(1 + (L_calcul / 5)); var MORSURE_att = parseInt($('#morsure_att').val()) + parseInt(bonus_morsure); }
+else {var MORSURE_att = parseInt($('#morsure_att').val());}
+$('#total_fdf_att').text(calcul_fdf($('#SJ').val(), $('#S').val(), $('#SC').val(), $('#R').val(), $('#RB').val(), $('#M').val(), $('#PP').val(), $('#B').val(), $('#BC').val(), $('#GRB').val(), $('#OQ').val(), $('#OQC').val(), $('#K').val(), $('#L').val(), MORSURE_att));
+
+$('#total_fdd_att').text(calcul_fdd($('#SJ').val(), $('#S').val(), $('#SC').val(), $('#R').val(), $('#RB').val(), $('#M').val(), $('#PP').val(), $('#B').val(), $('#BC').val(), $('#GRB').val(), $('#OQ').val(), $('#OQC').val(), $('#K').val(), $('#L').val(), MORSURE_att));
+
+$('#total_vie_att').text(calcul_vie($('#SJ').val(), $('#S').val(), $('#SC').val(), $('#R').val(), $('#RB').val(), $('#M').val(), $('#PP').val(), $('#B').val(), $('#BC').val(), $('#GRB').val(), $('#OQ').val(), $('#OQC').val(), $('#K').val(), $('#L').val(), $('#ecaille_att').val(), 0, 0, 1));
+
+if ($('#L_def').val() > 0) { var L_calcul = $('#L_def').val() - 1; var bonus_morsure = Math.floor(1 + (L_calcul / 5)); var MORSURE_def = parseInt($('#morsure_def').val()) + parseInt(bonus_morsure); }
+else {var MORSURE_def = parseInt($('#morsure_def').val());}
+$('#total_fdf_def').text(calcul_fdf($('#SJ_def').val(), $('#S_def').val(), $('#SC_def').val(), $('#R_def').val(), $('#RB_def').val(), $('#M_def').val(), $('#PP_def').val(), $('#B_def').val(), $('#BC_def').val(), $('#GRB_def').val(), $('#OQ_def').val(), $('#OQC_def').val(), $('#K_def').val(), $('#L_def').val(), MORSURE_def));
+
+$('#total_fdd_def').text(calcul_fdd($('#SJ_def').val(), $('#S_def').val(), $('#SC_def').val(), $('#R_def').val(), $('#RB_def').val(), $('#M_def').val(), $('#PP_def').val(), $('#B_def').val(), $('#BC_def').val(), $('#GRB_def').val(), $('#OQ_def').val(), $('#OQC_def').val(), $('#K_def').val(), $('#L_def').val(), MORSURE_def));
+
+$('#total_vie_def').text(calcul_vie($('#SJ_def').val(), $('#S_def').val(), $('#SC_def').val(), $('#R_def').val(), $('#RB_def').val(), $('#M_def').val(), $('#PP_def').val(), $('#B_def').val(), $('#BC_def').val(), $('#GRB_def').val(), $('#OQ_def').val(), $('#OQC_def').val(), $('#K_def').val(), $('#L_def').val(), $('#ecaille_def').val(), $('#rr_def').val(), $('#bdc_def').val(), lieu));
+
+
+$('input[type=radio][name=lieu]').change(function() {
+
+$('.def').trigger('keyup');
+
+});
+
+
+
+
+$('.att, .def, .def_stats, .att_stats').keyup(function(){
+
+var contenu = parseFloat(supprEspace($(this).val()));
+if(isNaN(contenu)||contenu ‹ 0){contenu = 0;}
+$(this).val(contenu.nombreFormate(0));
+
+
+var lieu = $('.lieu:checked').val();
+if (lieu == 'tm') { lieu = 1;}
+if (lieu == 'recif') { lieu = 2;}
+if (lieu == 'barriere') { lieu = 3;}
+
+
+if ($('#L').val() > 0) { var L_calcul = $('#L').val() - 1; var bonus_morsure = Math.floor(1 + (L_calcul / 5)); var MORSURE_att = parseInt($('#morsure_att').val()) + parseInt(bonus_morsure); }
+else {var MORSURE_att = parseInt($('#morsure_att').val());}
+$('#total_fdf_att').text(calcul_fdf($('#SJ').val(), $('#S').val(), $('#SC').val(), $('#R').val(), $('#RB').val(), $('#M').val(), $('#PP').val(), $('#B').val(), $('#BC').val(), $('#GRB').val(), $('#OQ').val(), $('#OQC').val(), $('#K').val(), $('#L').val(), MORSURE_att));
+
+$('#total_fdd_att').text(calcul_fdd($('#SJ').val(), $('#S').val(), $('#SC').val(), $('#R').val(), $('#RB').val(), $('#M').val(), $('#PP').val(), $('#B').val(), $('#BC').val(), $('#GRB').val(), $('#OQ').val(), $('#OQC').val(), $('#K').val(), $('#L').val(), MORSURE_att));
+
+$('#total_vie_att').text(calcul_vie($('#SJ').val(), $('#S').val(), $('#SC').val(), $('#R').val(), $('#RB').val(), $('#M').val(), $('#PP').val(), $('#B').val(), $('#BC').val(), $('#GRB').val(), $('#OQ').val(), $('#OQC').val(), $('#K').val(), $('#L').val(), $('#ecaille_att').val(), 0, 0, 1));
+
+if ($('#L_def').val() > 0) { var L_calcul = $('#L_def').val() - 1; var bonus_morsure = Math.floor(1 + (L_calcul / 5)); var MORSURE_def = parseInt($('#morsure_def').val()) + parseInt(bonus_morsure); }
+else {var MORSURE_def = parseInt($('#morsure_def').val());}
+$('#total_fdf_def').text(calcul_fdf($('#SJ_def').val(), $('#S_def').val(), $('#SC_def').val(), $('#R_def').val(), $('#RB_def').val(), $('#M_def').val(), $('#PP_def').val(), $('#B_def').val(), $('#BC_def').val(), $('#GRB_def').val(), $('#OQ_def').val(), $('#OQC_def').val(), $('#K_def').val(), $('#L_def').val(), MORSURE_def));
+
+$('#total_fdd_def').text(calcul_fdd($('#SJ_def').val(), $('#S_def').val(), $('#SC_def').val(), $('#R_def').val(), $('#RB_def').val(), $('#M_def').val(), $('#PP_def').val(), $('#B_def').val(), $('#BC_def').val(), $('#GRB_def').val(), $('#OQ_def').val(), $('#OQC_def').val(), $('#K_def').val(), $('#L_def').val(), MORSURE_def));
+
+$('#total_vie_def').text(calcul_vie($('#SJ_def').val(), $('#S_def').val(), $('#SC_def').val(), $('#R_def').val(), $('#RB_def').val(), $('#M_def').val(), $('#PP_def').val(), $('#B_def').val(), $('#BC_def').val(), $('#GRB_def').val(), $('#OQ_def').val(), $('#OQC_def').val(), $('#K_def').val(), $('#L_def').val(), $('#ecaille_def').val(), $('#rr_def').val(), $('#bdc_def').val(), lieu));
+
+
+
+}).trigger('keyup');
+
+var check = true;
+
+$('#all_arme').click(function(){
+
+if (check == true) {
+$('.att').each(function(){ var armee = $(this).data('arme'); $(this).val(armee).trigger('keyup');}); check = false;
+}
+else if (check == false) {
+$('.att').each(function(){ $(this).val('0').trigger('keyup');});
+check = true; }
+
+
+
+});
+
+var check2 = true;
+$('#all_arme2').click(function(){
+
+if (check2 == true) {
+$('.def').each(function(){ var armee = $(this).data('arme'); $(this).val(armee).trigger('keyup');}); check2 = false;
+}
+else if (check2 == false) {
+$('.def').each(function(){ $(this).val('0').trigger('keyup');;});
+check2 = true; }
+
+
+
+});
+
+
+var check3 = false;
+$('#all_arme3').click(function(){
+
+if (check3 == true) {
+$('.att_stats').each(function(){ var armee = $(this).data('arme'); $(this).val(armee).trigger('keyup');}); check3 = false;
+}
+else if (check3 == false) {
+$('.att_stats').each(function(){ $(this).val('0');});
+check3 = true; }
+
+
+
+});
+
+var check4 = true;
+$('#all_arme4').click(function(){
+
+if (check4 == true) {
+$('.def_stats').each(function(){ var armee = $(this).data('arme'); $(this).val(armee).trigger('keyup');}); check4 = false;
+}
+else if (check4 == false) {
+$('.def_stats').each(function(){ $(this).val('0');});
+check4 = true; }
+
+
+
+});
+
+
+‹/script>
+
+
+
+‹style>
+
+input[type='text'] { width: 110px; text-align: center;}
+input[type='text'].secondaire { width: 40px; text-align: center;}
+
+‹/style>
+
+
+
+
+
+‹/div>
+
+‹div id="footer">Copyright © 2017-2019 abyssus.games -
+
+‹font color="#00CC00">0.14‹/font> -
+‹font color="#00CC00">0.14‹/font> -
+‹font color="#00CC00">0.11‹/font>
+- Exécution de la page : 0.012890100479126 secondes.‹/div>
+
+‹/div>
+
+
+‹script>
+
+$(document).on('click', '.player', function(){
+
+var pseudo = $(this).text();
+document.location.href="jeu.php?page=joueur&pseudo="+pseudo;
+
+
+});
+
+$(document).on('click', '.infoteam', function(){
+var tag = $(this).text();
+document.location.href="jeu.php?page=alliance&tag="+tag;
+
+});
+
+
+‹/script>
+
+
+
+
+
+‹/body>
+‹/html>
